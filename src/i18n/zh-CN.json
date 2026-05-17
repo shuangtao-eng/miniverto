@@ -1,0 +1,363 @@
+{
+  "nav": {
+    "allProjects": "所有项目",
+    "materials": "学习资料",
+    "states": "状态变体",
+    "settings": "设置",
+    "shortcuts": "快捷键",
+    "recentProjects": "最近项目"
+  },
+  "common": {
+    "search": "搜索",
+    "online": "在线",
+    "offline": "离线",
+    "create": "创建",
+    "save": "保存",
+    "cancel": "取消",
+    "close": "关闭",
+    "next": "下一步",
+    "prev": "上一步",
+    "delete": "删除",
+    "edit": "编辑",
+    "selected": "已选",
+    "unselected": "未选",
+    "generating": "Miniverto 生成中…",
+    "expandSidebar": "展开侧边栏",
+    "collapseSidebar": "收起侧边栏"
+  },
+  "status": {
+    "active": "进行中",
+    "completed": "已完成",
+    "archived": "已归档",
+    "paused": "已暂停"
+  },
+  "projects": {
+    "title": "学习计划",
+    "new": "新建计划",
+    "countSummary": "{{active}} 个进行中 · {{total}} 个总计",
+    "noPlans": "暂无计划",
+    "noFilter": "该分类下暂无计划",
+    "empty": {
+      "title": "从第一个学习计划开始",
+      "description": "告诉 Miniverto 你想学什么、你目前的起点，它会帮你把模糊的想法变成清晰可执行的计划。",
+      "cta": "创建第一个学习计划",
+      "shortcut": "也可以按 ⌘N 快速开始"
+    },
+    "filters": {
+      "all": "全部",
+      "active": "进行中",
+      "completed": "已完成",
+      "archived": "已归档"
+    },
+    "card": {
+      "milestones": "{{count}} 个里程碑",
+      "tasks": "{{completed}}/{{total}} 任务"
+    }
+  },
+  "materials": {
+    "title": "学习资料库",
+    "summary": "{{total}} 份资料 · {{selected}} 份参与计划制定",
+    "privacyNote": "原始资料默认保存在本地。Miniverto 制定计划时只使用已选择资料的摘要或摘录。",
+    "emptyTitle": "还没有学习资料",
+    "emptyDescription": "在新建计划时上传课件、笔记、PDF、PPT 或录音，它们会出现在这里，作为后续计划和重规划的上下文。",
+    "selectedForPlanning": "已参与计划",
+    "useForPlanning": "用于计划",
+    "filters": {
+      "all": "全部",
+      "text": "文本",
+      "document": "文档",
+      "slides": "课件",
+      "audio": "录音",
+      "unsupported": "不支持"
+    }
+  },
+  "detail": {
+    "tasksCompleted": "{{completed}}/{{total}} 任务完成",
+    "milestones": "{{count}} 个里程碑",
+    "replan": "重新规划",
+    "milestoneAssess": "里程碑评估",
+    "tabs": {
+      "plan": "计划树",
+      "notes": "笔记",
+      "timeline": "时间线"
+    },
+    "critic": {
+      "title": "Miniverto 计划质量",
+      "comment": "Miniverto 评语"
+    },
+    "task": {
+      "detail": "详情",
+      "aiRewrite": "Miniverto 改写任务",
+      "saveNote": "保存笔记",
+      "acceptanceCriteria": "完成标准",
+      "resources": "学习资源",
+      "notes": "笔记"
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "general": "通用",
+    "llm": "LLM 提供商",
+    "search": "搜索增强",
+    "data": "数据管理",
+    "diagnostics": "诊断",
+    "language": "语言",
+    "theme": "外观主题",
+    "themes": {
+      "warm": "暖棕",
+      "cool": "靛蓝",
+      "system": "跟随系统"
+    },
+    "testConnection": "测试连接",
+    "testing": "测试中…",
+    "setPrimary": "设为主力",
+    "primary": "主力",
+    "configure": "配置",
+    "languageSub": "更改界面语言",
+    "themeSub": "切换配色方案",
+    "autoSave": "自动保存",
+    "autoSaveSub": "修改后自动保存到本地",
+    "notifications": "通知提醒",
+    "notificationsSub": "任务到期和学习提醒",
+    "llmNote": "API key 安全存储于系统密钥链，miniverto 无法读取明文",
+    "modelRecommendation": "推荐：复杂学习计划优先使用结构化输出和推理能力更强的模型；免费模型适合试用和轻量计划，OpenRelay 的免费能力取决于用户本机已有额度。",
+    "searchEnabled": "启用搜索增强",
+    "searchEnabledSub": "Miniverto 生成计划时搜索最新资源",
+    "exportAll": "导出所有数据",
+    "exportAllSub": "导出为 JSON 格式",
+    "export": "导出",
+    "importData": "导入数据",
+    "importDataSub": "从 JSON 文件恢复",
+    "import": "导入",
+    "clearCache": "清除缓存",
+    "clearCacheSub": "清除 Miniverto 生成缓存和临时数据",
+    "clear": "清除",
+    "diag": {
+      "projects": "项目数",
+      "totalTasks": "总任务数",
+      "apiCalls": "API 调用次数",
+      "storageUsed": "本地存储占用",
+      "version": "版本",
+      "runtime": "运行时",
+      "resetOnboarding": "重置引导",
+      "resetOnboardingSub": "重新显示初始设置向导",
+      "reset": "重置"
+    }
+  },
+  "create": {
+    "steps": {
+      "goal": "创建学习计划",
+      "profile": "学习背景与节奏",
+      "methods": "方法与资料",
+      "review": "确认 Miniverto 策略",
+      "generating": "生成中",
+      "goalHint": "先用选择题确定目标类型，再补充一句你的真实目标",
+      "profileHint": "Miniverto 会根据起点、时间和强度安排节奏",
+      "methodsHint": "选择学习方法，并加入课件、笔记或录音作为依据",
+      "reviewHint": "确认方法组合和最适合制定计划的模型",
+      "generatingHint": "Miniverto 正在为你量身构建学习计划…",
+      "doneHint": "计划已生成，可以开始了！"
+    },
+    "goal": {
+      "title": "这次学习最像哪一种目标？",
+      "project": "做出项目或作品",
+      "exam": "备考/认证",
+      "concept": "理解一门知识",
+      "career": "工作技能提升",
+      "research": "论文/研究入门"
+    },
+    "level": {
+      "title": "你现在的起点",
+      "beginner": "零基础或刚开始",
+      "intermediate": "了解概念，缺少体系",
+      "advanced": "已有经验，想补强"
+    },
+    "intensity": {
+      "title": "希望 Miniverto 用什么节奏规划？",
+      "light": "轻量，不打断生活",
+      "steady": "稳定推进",
+      "focused": "集中冲刺",
+      "sprint": "高强度短期突破"
+    },
+    "preference": {
+      "title": "偏好的学习方式（可多选）",
+      "problemSets": "MIT/PSET 问题集",
+      "quizzes": "主动回忆/测验",
+      "handsOn": "动手项目",
+      "reading": "阅读讲义/书籍",
+      "video": "视频课程",
+      "discussion": "讲解/讨论"
+    },
+    "materials": {
+      "uploadTitle": "上传学习资料",
+      "uploadCta": "选择课件、笔记、PDF、PPT 或录音",
+      "pasteTitle": "粘贴资料摘录",
+      "pastePlaceholder": "粘贴课程大纲、笔记片段、老师要求或重点章节…",
+      "addPasted": "+ 加入粘贴内容",
+      "status": {
+        "ready": "可直接用于计划",
+        "queued": "等待处理",
+        "processing": "处理中",
+        "needs-parser": "等待本地解析器处理",
+        "unsupported": "暂不支持",
+        "failed": "处理失败"
+      }
+    },
+    "review": {
+      "methods": "Miniverto 推荐的方法组合",
+      "model": "最适合制定计划的模型",
+      "freeAlso": "免费优先可选"
+    },
+    "whatToLearn": "你想学什么？",
+    "descriptionPlaceholder": "例如：我想学 Rust，目前是 Python 背景，想做系统编程方向。有一定编程基础但没接触过内存管理…",
+    "timeBudget": "每周可投入时间",
+    "deadline": "截止时间（可选）",
+    "deadlinePlaceholder": "例如：6 周 / 8 月考试 / 无硬截止",
+    "extraNotesPlaceholder": "还有什么想补充给 Miniverto？例如薄弱点、课程要求、不能接受的学习方式…",
+    "preview": {
+      "defaultGoal": "一项新的学习目标"
+    },
+    "chips": {
+      "rust": "学 Rust 做系统编程",
+      "pmp": "备考 PMP 项目管理",
+      "ml": "系统学习机器学习",
+      "transformer": "读懂 Transformer 论文"
+    },
+    "analyzing": "Miniverto 正在分析你的需求…",
+    "analyzingHint": "思考如何最好地帮助你",
+    "clarify": {
+      "q1": "你目前对这个主题了解到什么程度？",
+      "q1Why": "💡 帮助 Miniverto 校准起点，避免计划太基础或太深",
+      "q1Placeholder": "例如：完全零基础 / 看过一些教程 / 工作中用过但不系统…",
+      "q2": "你每天/每周能投入多少时间学习？",
+      "q2Why": "💡 合理分配任务节奏，避免计划超出实际可用时间",
+      "q2Placeholder": "例如：每天 1 小时，周末可以 3-4 小时…",
+      "q3": "你期望学完之后能做到什么？",
+      "q3Why": "💡 明确可验证的终态，让评估有具体目标",
+      "q3Placeholder": "例如：能独立完成一个小项目 / 通过认证考试 / 读懂相关论文…",
+      "q4": "有没有特别想用的学习方式或资源偏好？",
+      "q4Why": "💡 匹配你的学习风格，生成更有针对性的资源推荐",
+      "q4Placeholder": "例如：喜欢视频 / 偏好看书 / 动手为主 / 不想看英文资料…"
+    },
+    "generatingLabel": "生成中",
+    "doneMessage": "计划已生成，Miniverto 计划质量评分：8.5/10。建议从里程碑 1 开始。",
+    "later": "稍后再看",
+    "skipQuestions": "跳过问题",
+    "nextClarify": "下一步：让 Miniverto 澄清 →",
+    "generatePlan": "生成计划 ✦",
+    "startLearning": "开始学习 →"
+  },
+  "replan": {
+    "title": "重新规划",
+    "inputHint": "Miniverto 将基于你的当前进度和反馈重新生成计划",
+    "loadingHint": "Miniverto 正在分析进度数据并生成新方案…",
+    "diffSummary": "发现 {{total}} 处变更 · {{added}} 新增 · {{modified}} 修改 · {{removed}} 删除",
+    "statDone": "已完成任务",
+    "statInProgress": "进行中",
+    "statRemaining": "预计剩余",
+    "feedbackLabel": "描述你的情况或期望（可选）",
+    "feedbackPlaceholder": "例如：进度比预期慢 30%，想压缩前两个里程碑节奏；或者某块内容太难想换个顺序…",
+    "chips": {
+      "slow": "进度慢了，想压缩",
+      "hard": "内容太难了",
+      "moreTime": "时间变多了，想加速",
+      "changeFocus": "调整学习重点"
+    },
+    "loadingTitle": "Miniverto 正在基于进度重排…",
+    "loadingDetail": "分析已完成任务，匹配新节奏，生成变更建议",
+    "selectChanges": "勾选要应用的变更",
+    "atomicNote": "变更将以事务形式应用——全部成功或全部回滚，不会出现部分状态。",
+    "discardAll": "全部丢弃",
+    "start": "开始重规划 →",
+    "applyChanges": "应用 {{count}} 项变更 ✓"
+  },
+  "cmd": {
+    "placeholder": "搜索项目、任务，或执行动作…",
+    "noResults": "没有找到 \"{{query}}\" 相关结果",
+    "groupActions": "动作",
+    "groupRecent": "最近项目",
+    "newPlan": "新建学习计划",
+    "openSettings": "打开设置",
+    "shortcuts": "快捷键帮助",
+    "navigate": "导航",
+    "execute": "执行",
+    "close": "关闭"
+  },
+  "onboarding": {
+    "skipAll": "跳过所有设置",
+    "finish": "完成设置 ✦",
+    "welcome": {
+      "title": "欢迎使用 miniverto",
+      "subtitle": "把模糊的学习欲望，变成可执行、可度量、可迭代的分层计划。",
+      "cta": "开始设置 →",
+      "timeHint": "接下来用 2 分钟完成基础设置"
+    },
+    "language": {
+      "title": "选择界面语言",
+      "subtitle": "随时可以在设置中更改"
+    },
+    "theme": {
+      "title": "选择外观",
+      "subtitle": "可以随时在设置中调整"
+    },
+    "privacy": {
+      "title": "数据如何流转",
+      "subtitle": "了解 miniverto 如何处理你的数据",
+      "agree": "我已了解 miniverto 的数据处理方式，同意继续使用",
+      "local": "所有数据 100% 保存在本地，miniverto 无服务器",
+      "keychain": "API key 仅存于系统密钥链，绝不落入日志或数据库",
+      "noMeta": "发送给 LLM 的仅是你主动提供的学习内容，无隐私元数据",
+      "device": "你的设备",
+      "deviceSub": "本地存储",
+      "api": "LLM API",
+      "apiSub": "你的 key",
+      "provider": "推理提供商",
+      "providerSub": "仅限推理"
+    },
+    "llm": {
+      "title": "连接模型提供商",
+      "subtitle": "选择一个 LLM 提供商并输入 API Key",
+      "noKey": "无需 API key（本地模型）",
+      "testing": "测试中…",
+      "ok": "✓ 连接正常",
+      "fail": "✗ 失败",
+      "keyNote": "key 存储于系统密钥链，miniverto 无法读取明文"
+    },
+    "search": {
+      "title": "配置搜索增强（可选）",
+      "subtitle": "启用后 Miniverto 可验证资源链接有效性并补充最新内容",
+      "skip": "跳过此步 →",
+      "note": "不配置也能正常使用。可在设置中随时开启。"
+    },
+    "example": {
+      "title": "从示例开始（可选）",
+      "subtitle": "选一个示例项目快速了解计划结构，可随时删除",
+      "createOwn": "自己建第一个计划 →",
+      "importSample": "导入示例并开始 →"
+    }
+  },
+  "assess": {
+    "correctAnswer": "正确答案",
+    "questionOf": "第 {{current}} 题，共 {{total}} 题",
+    "sampleAnswer": "参考答案",
+    "explanation": "解析",
+    "skip": "跳过此题",
+    "reveal": "查看解析",
+    "next": "下一题 →",
+    "finish": "完成评估 ✦",
+    "report": {
+      "complete": "完成",
+      "score": "本次得分",
+      "scoreSub": "{{correct}}/{{total}} 题正确",
+      "avgGain": "平均增益",
+      "vsBaseline": "相比基线",
+      "strongest": "最强维度",
+      "gainTitle": "学习增益（维度对比）",
+      "baseline": "基线",
+      "current": "当前",
+      "aiAnalysis": "Miniverto 分析",
+      "viewDetail": "查看详情报告",
+      "continue": "继续学习 →"
+    }
+  }
+}

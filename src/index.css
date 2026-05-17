@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── miniverto design tokens ─── */
+
+:root {
+  --bg:          #faf8f4;
+  --bg-2:        #f3ede3;
+  --bg-3:        #ece4d7;
+  --surface:     #ffffff;
+  --surface-2:   #fdfaf6;
+  --overlay:     rgba(44, 29, 16, 0.45);
+
+  --text-1:      #2c1d10;
+  --text-2:      #7d6552;
+  --text-3:      #b3a090;
+  --text-inv:    #faf8f4;
+
+  --accent:      #c4956a;
+  --accent-h:    #ab7d54;
+  --accent-bg:   #f5e8d5;
+  --accent-text: #6b3f1a;
+
+  --border:      #e8ddd0;
+  --border-2:    #f0e8df;
+
+  --ok:          #4a7c59;
+  --ok-bg:       #e4f0e8;
+  --warn:        #c48a2a;
+  --warn-bg:     #fdf2dc;
+  --err:         #b85450;
+  --err-bg:      #fbeaea;
+  --info:        #4a6e9c;
+  --info-bg:     #e6eef8;
+
+  --sidebar-w:   220px;
+  --topbar-h:    48px;
+  --statusbar-h: 28px;
+
+  --radius-sm:   6px;
+  --radius:      10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+
+  --shadow-sm:   0 1px 3px rgba(44,29,16,.06), 0 1px 2px rgba(44,29,16,.04);
+  --shadow:      0 4px 16px rgba(44,29,16,.08), 0 1px 4px rgba(44,29,16,.05);
+  --shadow-lg:   0 12px 40px rgba(44,29,16,.12), 0 4px 12px rgba(44,29,16,.07);
+
+  --font:        -apple-system, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --font-display:-apple-system, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+  --font-mono:   'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:    120ms;
+  --dur:         220ms;
+  --dur-slow:    380ms;
+}
+
+/* Cool/Indigo variant */
+[data-theme="cool"] {
+  --bg:          #f5f5f3;
+  --bg-2:        #eeeeea;
+  --bg-3:        #e5e5e0;
+  --surface:     #ffffff;
+  --surface-2:   #fafafa;
+  --overlay:     rgba(28, 28, 26, 0.45);
+
+  --text-1:      #1c1c1a;
+  --text-2:      #5c5c58;
+  --text-3:      #9c9c94;
+  --text-inv:    #f5f5f3;
+
+  --accent:      #5b6ee1;
+  --accent-h:    #4454cc;
+  --accent-bg:   #ebebfc;
+  --accent-text: #2a3abf;
+
+  --border:      #e0e0d8;
+  --border-2:    #eaeae4;
+
+  --ok:          #2e7d5a;
+  --ok-bg:       #e0f2ec;
+  --warn:        #b5750f;
+  --warn-bg:     #fef3dc;
+  --err:         #c0392b;
+  --err-bg:      #fde8e6;
+  --info:        #2563a8;
+  --info-bg:     #e4eef8;
+
+  --shadow-sm:   0 1px 3px rgba(28,28,26,.05), 0 1px 2px rgba(28,28,26,.04);
+  --shadow:      0 4px 16px rgba(28,28,26,.07), 0 1px 4px rgba(28,28,26,.04);
+  --shadow-lg:   0 12px 40px rgba(28,28,26,.10), 0 4px 12px rgba(28,28,26,.06);
+}
+
+/* ─── base ─── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, #root { width: 100%; height: 100%; overflow: hidden; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-1);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ─── scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+/* ─── focus ring ─── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── selection ─── */
+::selection { background: var(--accent-bg); color: var(--accent-text); }
+
+/* ─── slide-in-right animation ─── */
+@keyframes slide-in-right {
+  from { transform: translateX(30px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in-right {
+  animation: slide-in-right 280ms var(--ease-spring);
+}
+
+/* ─── dialog animations ─── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-up {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+@keyframes question-in {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+@keyframes cmd-in {
+  from { transform: translateY(-16px) scale(0.97); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-fade-in    { animation: fade-in 180ms ease; }
+.animate-slide-up   { animation: slide-up 280ms var(--ease-spring); }
+.animate-cmd-in     { animation: cmd-in 220ms var(--ease-spring); }
+.animate-spin       { animation: spin 2s linear infinite; }
+
+/* ─── reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

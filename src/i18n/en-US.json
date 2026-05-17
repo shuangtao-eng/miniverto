@@ -1,0 +1,363 @@
+{
+  "nav": {
+    "allProjects": "All Projects",
+    "materials": "Materials",
+    "states": "State Variants",
+    "settings": "Settings",
+    "shortcuts": "Shortcuts",
+    "recentProjects": "Recent Projects"
+  },
+  "common": {
+    "search": "Search",
+    "online": "Online",
+    "offline": "Offline",
+    "create": "Create",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "next": "Next",
+    "prev": "Back",
+    "delete": "Delete",
+    "edit": "Edit",
+    "selected": "Selected",
+    "unselected": "Not selected",
+    "generating": "Miniverto generating…",
+    "expandSidebar": "Expand sidebar",
+    "collapseSidebar": "Collapse sidebar"
+  },
+  "status": {
+    "active": "Active",
+    "completed": "Completed",
+    "archived": "Archived",
+    "paused": "Paused"
+  },
+  "projects": {
+    "title": "Learning Plans",
+    "new": "New Plan",
+    "countSummary": "{{active}} active · {{total}} total",
+    "noPlans": "No plans yet",
+    "noFilter": "No plans in this category",
+    "empty": {
+      "title": "Start your first learning plan",
+      "description": "Tell Miniverto what you want to learn and where you are now. It will turn your vague ideas into a clear, actionable plan.",
+      "cta": "Create your first plan",
+      "shortcut": "Or press ⌘N to get started"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "completed": "Completed",
+      "archived": "Archived"
+    },
+    "card": {
+      "milestones": "{{count}} milestones",
+      "tasks": "{{completed}}/{{total}} tasks"
+    }
+  },
+  "materials": {
+    "title": "Learning Materials",
+    "summary": "{{total}} materials · {{selected}} selected for planning",
+    "privacyNote": "Original files stay local by default. Miniverto uses summaries or excerpts from selected materials when planning.",
+    "emptyTitle": "No learning materials yet",
+    "emptyDescription": "Upload slides, notes, PDFs, PPTs, or recordings while creating a plan. They will appear here as context for future planning and replanning.",
+    "selectedForPlanning": "Selected for planning",
+    "useForPlanning": "Use for planning",
+    "filters": {
+      "all": "All",
+      "text": "Text",
+      "document": "Documents",
+      "slides": "Slides",
+      "audio": "Audio",
+      "unsupported": "Unsupported"
+    }
+  },
+  "detail": {
+    "tasksCompleted": "{{completed}}/{{total}} tasks done",
+    "milestones": "{{count}} milestones",
+    "replan": "Replan",
+    "milestoneAssess": "Assess Milestone",
+    "tabs": {
+      "plan": "Plan Tree",
+      "notes": "Notes",
+      "timeline": "Timeline"
+    },
+    "critic": {
+      "title": "Miniverto Plan Quality",
+      "comment": "Miniverto Comment"
+    },
+    "task": {
+      "detail": "Details",
+      "aiRewrite": "Miniverto Rewrite Task",
+      "saveNote": "Save Note",
+      "acceptanceCriteria": "Acceptance Criteria",
+      "resources": "Resources",
+      "notes": "Notes"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "llm": "LLM Providers",
+    "search": "Search Enhancement",
+    "data": "Data Management",
+    "diagnostics": "Diagnostics",
+    "language": "Language",
+    "theme": "Theme",
+    "themes": {
+      "warm": "Warm",
+      "cool": "Indigo",
+      "system": "System"
+    },
+    "testConnection": "Test Connection",
+    "testing": "Testing…",
+    "setPrimary": "Set as Primary",
+    "primary": "Primary",
+    "configure": "Configure",
+    "languageSub": "Change interface language",
+    "themeSub": "Switch color scheme",
+    "autoSave": "Auto Save",
+    "autoSaveSub": "Automatically save changes locally",
+    "notifications": "Notifications",
+    "notificationsSub": "Task due dates and learning reminders",
+    "llmNote": "API keys are securely stored in the system keychain",
+    "modelRecommendation": "Recommendation: use stronger reasoning and structured-output models for complex plans. Free models are good for trials and lightweight plans; OpenRelay depends on the user's own local quotas.",
+    "searchEnabled": "Enable Search Enhancement",
+    "searchEnabledSub": "Miniverto searches for latest resources when generating plans",
+    "exportAll": "Export All Data",
+    "exportAllSub": "Export as JSON format",
+    "export": "Export",
+    "importData": "Import Data",
+    "importDataSub": "Restore from JSON file",
+    "import": "Import",
+    "clearCache": "Clear Cache",
+    "clearCacheSub": "Clear Miniverto generation cache and temp data",
+    "clear": "Clear",
+    "diag": {
+      "projects": "Projects",
+      "totalTasks": "Total Tasks",
+      "apiCalls": "API Calls",
+      "storageUsed": "Storage Used",
+      "version": "Version",
+      "runtime": "Runtime",
+      "resetOnboarding": "Reset Onboarding",
+      "resetOnboardingSub": "Show the initial setup wizard again",
+      "reset": "Reset"
+    }
+  },
+  "create": {
+    "steps": {
+      "goal": "Create Learning Plan",
+      "profile": "Learning background and pace",
+      "methods": "Methods and materials",
+      "review": "Confirm Miniverto strategy",
+      "generating": "Generating",
+      "goalHint": "Start with choices, then add your real goal in plain text",
+      "profileHint": "Miniverto uses your level, time, and intensity to pace the plan",
+      "methodsHint": "Choose learning methods and attach slides, notes, or recordings",
+      "reviewHint": "Confirm the method bundle and the strongest model for planning",
+      "generatingHint": "Miniverto is building your personalized learning plan…",
+      "doneHint": "Plan generated, ready to start!"
+    },
+    "goal": {
+      "title": "What kind of learning goal is this?",
+      "project": "Build a project",
+      "exam": "Exam or certification",
+      "concept": "Understand a subject",
+      "career": "Improve work skills",
+      "research": "Read papers or research"
+    },
+    "level": {
+      "title": "Your current starting point",
+      "beginner": "New or just starting",
+      "intermediate": "Know concepts, need structure",
+      "advanced": "Experienced, need depth"
+    },
+    "intensity": {
+      "title": "What pace should Miniverto use?",
+      "light": "Light and flexible",
+      "steady": "Steady progress",
+      "focused": "Focused push",
+      "sprint": "High-intensity sprint"
+    },
+    "preference": {
+      "title": "Preferred learning methods",
+      "problemSets": "MIT/PSET problem sets",
+      "quizzes": "Retrieval quizzes",
+      "handsOn": "Hands-on projects",
+      "reading": "Readings/books",
+      "video": "Video courses",
+      "discussion": "Explain/discuss"
+    },
+    "materials": {
+      "uploadTitle": "Upload learning materials",
+      "uploadCta": "Choose slides, notes, PDFs, PPTs, or recordings",
+      "pasteTitle": "Paste material excerpts",
+      "pastePlaceholder": "Paste syllabus, notes, requirements, or key chapters…",
+      "addPasted": "+ Add pasted material",
+      "status": {
+        "ready": "Ready for planning",
+        "queued": "Queued",
+        "processing": "Processing",
+        "needs-parser": "Waiting for local parser",
+        "unsupported": "Unsupported",
+        "failed": "Failed"
+      }
+    },
+    "review": {
+      "methods": "Miniverto recommended methods",
+      "model": "Best model for planning",
+      "freeAlso": "Free-first alternatives"
+    },
+    "whatToLearn": "What do you want to learn?",
+    "descriptionPlaceholder": "e.g. I want to learn Rust, coming from a Python background, interested in systems programming. I have some coding experience but no memory management…",
+    "timeBudget": "Weekly time budget",
+    "deadline": "Deadline (optional)",
+    "deadlinePlaceholder": "e.g. 6 weeks / August exam / no hard deadline",
+    "extraNotesPlaceholder": "Anything else for Miniverto? Weak spots, course requirements, or learning styles to avoid…",
+    "preview": {
+      "defaultGoal": "a new learning goal"
+    },
+    "chips": {
+      "rust": "Learn Rust for systems programming",
+      "pmp": "Prepare for PMP certification",
+      "ml": "Learn machine learning systematically",
+      "transformer": "Understand Transformer papers"
+    },
+    "analyzing": "Miniverto is analyzing your needs…",
+    "analyzingHint": "Thinking about how best to help you",
+    "clarify": {
+      "q1": "How much do you already know about this topic?",
+      "q1Why": "💡 Helps Miniverto calibrate the starting point",
+      "q1Placeholder": "e.g. Complete beginner / watched some tutorials / used at work but not systematically…",
+      "q2": "How much time can you invest daily/weekly?",
+      "q2Why": "💡 Properly pace tasks to match your available time",
+      "q2Placeholder": "e.g. 1 hour daily, 3-4 hours on weekends…",
+      "q3": "What do you expect to be able to do after learning?",
+      "q3Why": "💡 Define a verifiable end state for assessment",
+      "q3Placeholder": "e.g. Complete a small project independently / pass a certification / read related papers…",
+      "q4": "Any preferred learning methods or resource types?",
+      "q4Why": "💡 Match your learning style for better recommendations",
+      "q4Placeholder": "e.g. Prefer videos / like books / hands-on focused / prefer native language materials…"
+    },
+    "generatingLabel": "Generating",
+    "doneMessage": "Plan generated. Miniverto plan quality score: 8.5/10. Start with Milestone 1.",
+    "later": "View later",
+    "skipQuestions": "Skip questions",
+    "nextClarify": "Next: Miniverto clarification →",
+    "generatePlan": "Generate plan ✦",
+    "startLearning": "Start learning →"
+  },
+  "replan": {
+    "title": "Replan",
+    "inputHint": "Miniverto will regenerate your plan based on current progress and feedback",
+    "loadingHint": "Miniverto is analyzing progress data and generating a new plan…",
+    "diffSummary": "Found {{total}} changes · {{added}} added · {{modified}} modified · {{removed}} removed",
+    "statDone": "Completed",
+    "statInProgress": "In Progress",
+    "statRemaining": "Remaining",
+    "feedbackLabel": "Describe your situation or expectations (optional)",
+    "feedbackPlaceholder": "e.g. Progress is 30% slower than expected, want to compress the first two milestones…",
+    "chips": {
+      "slow": "Falling behind, compress",
+      "hard": "Content too difficult",
+      "moreTime": "More time available, speed up",
+      "changeFocus": "Change focus areas"
+    },
+    "loadingTitle": "Miniverto is rearranging based on progress…",
+    "loadingDetail": "Analyzing completed tasks, matching new pace, generating change suggestions",
+    "selectChanges": "Select changes to apply",
+    "atomicNote": "Changes are applied atomically — all succeed or all roll back, no partial state.",
+    "discardAll": "Discard all",
+    "start": "Start replanning →",
+    "applyChanges": "Apply {{count}} changes ✓"
+  },
+  "cmd": {
+    "placeholder": "Search projects, tasks, or run actions…",
+    "noResults": "No results found for \"{{query}}\"",
+    "groupActions": "Actions",
+    "groupRecent": "Recent Projects",
+    "newPlan": "New Learning Plan",
+    "openSettings": "Open Settings",
+    "shortcuts": "Keyboard Shortcuts",
+    "navigate": "Navigate",
+    "execute": "Execute",
+    "close": "Close"
+  },
+  "onboarding": {
+    "skipAll": "Skip all setup",
+    "finish": "Finish setup ✦",
+    "welcome": {
+      "title": "Welcome to miniverto",
+      "subtitle": "Turn vague learning desires into executable, measurable, iterative plans.",
+      "cta": "Get Started →",
+      "timeHint": "This will take about 2 minutes"
+    },
+    "language": {
+      "title": "Choose your language",
+      "subtitle": "You can change this anytime in settings"
+    },
+    "theme": {
+      "title": "Choose your look",
+      "subtitle": "You can change this anytime in settings"
+    },
+    "privacy": {
+      "title": "How your data flows",
+      "subtitle": "Learn how miniverto handles your data",
+      "agree": "I understand how miniverto handles data and agree to continue",
+      "local": "All data is 100% stored locally — miniverto has no servers",
+      "keychain": "API keys are stored in the system keychain, never in logs or databases",
+      "noMeta": "Only your learning content is sent to LLMs — no private metadata",
+      "device": "Your Device",
+      "deviceSub": "Local storage",
+      "api": "LLM API",
+      "apiSub": "Your key",
+      "provider": "Inference Provider",
+      "providerSub": "Inference only"
+    },
+    "llm": {
+      "title": "Connect a model provider",
+      "subtitle": "Choose an LLM provider and enter your API key",
+      "noKey": "No API key needed (local model)",
+      "testing": "Testing…",
+      "ok": "✓ Connected",
+      "fail": "Failed",
+      "keyNote": "Keys are stored in the system keychain — miniverto cannot read plaintext"
+    },
+    "search": {
+      "title": "Search Enhancement (optional)",
+      "subtitle": "Enable Miniverto to verify resource links and find latest content",
+      "skip": "Skip this step →",
+      "note": "Works fine without this. You can enable it later in settings."
+    },
+    "example": {
+      "title": "Start with an example?",
+      "subtitle": "Pick a sample project to explore the plan structure — delete anytime",
+      "createOwn": "Create your first plan →",
+      "importSample": "Import sample and start →"
+    }
+  },
+  "assess": {
+    "correctAnswer": "Correct",
+    "questionOf": "Question {{current}} of {{total}}",
+    "sampleAnswer": "Sample Answer",
+    "explanation": "Explanation",
+    "skip": "Skip",
+    "reveal": "Show Explanation",
+    "next": "Next →",
+    "finish": "Finish Assessment ✦",
+    "report": {
+      "complete": " Complete",
+      "score": "Score",
+      "scoreSub": "{{correct}}/{{total}} correct",
+      "avgGain": "Avg Gain",
+      "vsBaseline": "vs baseline",
+      "strongest": "Strongest",
+      "gainTitle": "Learning Gain (by Dimension)",
+      "baseline": "Baseline",
+      "current": "Current",
+      "aiAnalysis": "Miniverto Analysis",
+      "viewDetail": "View Full Report",
+      "continue": "Continue Learning →"
+    }
+  }
+}
