@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/github/license/shuangtao-eng/miniverto)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/shuangtao-eng/miniverto?include_prereleases)](https://github.com/shuangtao-eng/miniverto/releases)
 
+English | [简体中文](README.zh-CN.md)
+
 Miniverto is a local-first AI learning planner that turns ambitious learning goals into adaptive study plans, structured lessons, practice loops, and durable notes.
 
 Most learning tools start after you already know what to study. Miniverto starts earlier: it helps you shape a vague goal, connect it to your background and available materials, then turn that context into a plan you can actually follow.
