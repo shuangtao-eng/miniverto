@@ -45,7 +45,7 @@ export function TaskCard({ task, onStatusChange, onOpen, selected }: TaskCardPro
           </span>
         </div>
         <div className="flex gap-2.5 items-center">
-          <span className="text-[11px] text-fg-3">⏱ {task.estimatedMinutes} {t('units.minutes', '分钟')}</span>
+          <span className="text-[11px] text-fg-3">⏱ {task.estimatedMinutes} {t('units.minutes', 'minutes')}</span>
           {task.suggestedDate && <span className="text-[11px] text-fg-3">📅 {task.suggestedDate}</span>}
           {task.userNote && <span className="text-[11px] text-ok max-w-40 truncate">💬 {task.userNote}</span>}
         </div>

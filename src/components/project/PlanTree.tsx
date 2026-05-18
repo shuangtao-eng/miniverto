@@ -17,7 +17,7 @@ export function PlanTree({ project, taskStatuses, onTaskStatusChange, onTaskOpen
       {/* Goal banner */}
       <div className="px-[18px] py-4 rounded-lg border border-border mb-5" style={{ background: 'linear-gradient(135deg, var(--accent-bg) 0%, var(--bg-2) 100%)' }}>
         <div className="text-[11px] text-fg-3 mb-[5px] uppercase tracking-[0.06em] font-semibold">
-          {t('detail.goalLabel', '学习目标')}
+          {t('detail.goalLabel', 'Learning Goal')}
         </div>
         <p className="text-[15px] font-medium text-foreground leading-relaxed font-display">
           {project.goalSummary}

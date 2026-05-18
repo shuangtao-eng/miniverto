@@ -17,14 +17,14 @@ const MODEL_COLORS: Record<string, { icon: string; color: string }> = {
 const DEFAULT_MODEL_VISUAL = { icon: '⚙', color: '#8b5cf6' }
 
 const SEARCH_PROVIDERS = [
-  { id: 'brave', name: 'Brave Search', desc: '免费额度充足', emoji: '🦁' },
-  { id: 'tavily', name: 'Tavily', desc: '专为模型检索优化', emoji: '🔍' },
+  { id: 'brave', name: 'Brave Search', desc: 'Generous free quota', emoji: 'B' },
+  { id: 'tavily', name: 'Tavily', desc: 'Optimized for model search', emoji: 'T' },
 ] as const
 
 const SAMPLE_PROJECTS = [
-  { id: 's1', emoji: '🦀', title: '系统学习 Rust', desc: '6 周从零到能写 CLI 工具', tags: ['编程', '6周'] },
-  { id: 's2', emoji: '📊', title: 'PMP 备考 30 天', desc: '结合 PMBOK 的冲刺计划', tags: ['备考', '30天'] },
-  { id: 's3', emoji: '🧠', title: '机器学习入门', desc: '数学→理论→实战三段式', tags: ['ML', '12周'] },
+  { id: 's1', emoji: 'R', title: 'Learn Rust systematically', desc: 'From zero to a CLI tool in 6 weeks', tags: ['coding', '6w'] },
+  { id: 's2', emoji: 'P', title: 'PMP 30-day sprint', desc: 'A focused PMBOK-based review plan', tags: ['exam', '30d'] },
+  { id: 's3', emoji: 'M', title: 'Machine learning intro', desc: 'Math, theory, and applied practice', tags: ['ML', '12w'] },
 ] as const
 
 function OnboardProgress({ step }: { step: number }) {
@@ -69,7 +69,7 @@ export function OnboardingPage() {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const [step, setStep] = useState(0)
-  const [lang, setLang] = useState('zh')
+  const [lang, setLang] = useState(() => (i18n.language.startsWith('zh') ? 'zh' : 'en'))
   const [theme, setTheme] = useState('system')
   const [privacyAgreed, setPrivacyAgreed] = useState(false)
   const [provider, setProvider] = useState<string | null>(null)
@@ -170,7 +170,7 @@ export function OnboardingPage() {
             <div className="grid grid-cols-2 gap-3">
               {[
                 { id: 'zh', flag: '🇨🇳', name: '简体中文', sub: 'Simplified Chinese' },
-                { id: 'en', flag: '🇺🇸', name: 'English', sub: '英文界面' },
+                { id: 'en', flag: '🇺🇸', name: 'English', sub: 'English interface' },
               ].map((l) => (
                 <SelectCard key={l.id} selected={lang === l.id} onClick={() => handleLanguageChange(l.id)}>
                   <div className="text-center">
@@ -193,7 +193,7 @@ export function OnboardingPage() {
             <div className="grid grid-cols-3 gap-3">
               {[
                 { id: 'light', label: t('settings.themes.warm'), bg: '#faf8f4', sidebar: '#f3ede3' },
-                { id: 'dark', label: '深色', bg: '#1c1410', sidebar: '#231a14' },
+                { id: 'dark', label: 'Dark', bg: '#1c1410', sidebar: '#231a14' },
                 { id: 'system', label: t('settings.themes.system'), bg: 'linear-gradient(135deg,#faf8f4 50%,#1c1410 50%)', sidebar: '#f3ede3' },
               ].map((th) => (
                 <SelectCard key={th.id} selected={theme === th.id} onClick={() => setTheme(th.id)}>

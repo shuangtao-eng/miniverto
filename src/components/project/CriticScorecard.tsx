@@ -34,7 +34,7 @@ export function CriticScorecard({ score, dimensions }: CriticScorecardProps) {
         <div className="flex-1">
           <div className="text-xs text-fg-3 mb-px">{t('detail.critic.title')}</div>
           <div className="text-sm font-semibold text-foreground">
-            综合评分 <span className={scoreColor(score)}>{score}/10</span>
+            Overall score <span className={scoreColor(score)}>{score}/10</span>
           </div>
         </div>
         <svg
@@ -60,7 +60,7 @@ export function CriticScorecard({ score, dimensions }: CriticScorecardProps) {
             </div>
           ))}
           <p className="text-[11px] text-fg-3 leading-normal mt-1 border-t border-border-2 pt-2.5">
-            计划结构清晰，任务粒度合理。建议在里程碑 2 补充更多实践练习以加强动手能力。
+            The plan has a clear structure and actionable task granularity. Add more applied practice in milestone 2 to strengthen hands-on ability.
           </p>
         </div>
       )}

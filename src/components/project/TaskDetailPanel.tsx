@@ -4,10 +4,10 @@ import type { Task } from '@/types'
 import { getTaskAcceptanceCriteria, getTaskGuidance } from '@/services/task-guidance'
 
 const KIND_LABELS: Record<Task['kind'], string> = {
-  reading: '阅读',
-  practice: '练习',
-  reflection: '复盘',
-  other: '其他',
+  reading: 'Reading',
+  practice: 'Practice',
+  reflection: 'Reflection',
+  other: 'Other',
 }
 
 const KIND_ICONS: Record<Task['kind'], string> = {
@@ -47,7 +47,7 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
         </div>
         <div className="flex-1 min-w-0">
           <div className="text-[11px] text-fg-3 mb-[3px]">
-            {KIND_LABELS[task.kind]} · {task.estimatedMinutes} {t('units.minutes', '分钟')}
+            {KIND_LABELS[task.kind]} · {task.estimatedMinutes} {t('units.minutes', 'minutes')}
           </div>
           <h3 className="text-sm font-semibold text-foreground leading-snug">{task.title}</h3>
         </div>
@@ -59,46 +59,46 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
       </div>
 
       <div className="flex-1 overflow-y-auto px-[18px] py-4 flex flex-col gap-[18px]">
-        <Section label="学习指导">
+        <Section label="Learning guidance">
           <p className="text-[13px] text-fg-2 leading-relaxed">{guidance}</p>
         </Section>
 
         {task.learningContent && (
-          <Section label="App 内学习内容">
+          <Section label="In-app lesson content">
             <div className="flex flex-col gap-3 rounded-lg bg-bg-2 px-3 py-3">
               <p className="text-[13px] leading-relaxed text-fg-2">{task.learningContent.overview}</p>
-              <ContentList title="关键概念" items={task.learningContent.keyPoints} />
-              <ContentList title="学习步骤" items={task.learningContent.steps} />
-              <ContentList title="小练习" items={task.learningContent.exercises} />
+              <ContentList title="Key concepts" items={task.learningContent.keyPoints} />
+              <ContentList title="Learning steps" items={task.learningContent.steps} />
+              <ContentList title="Exercises" items={task.learningContent.exercises} />
               {task.learningContent.mediaSuggestions && task.learningContent.mediaSuggestions.length > 0 && (
                 <div className="rounded-md border border-border bg-surface px-3 py-2">
-                  <div className="text-[11px] font-semibold text-fg-3">图文/视频建议</div>
+                  <div className="text-[11px] font-semibold text-fg-3">Visual and video suggestions</div>
                   <div className="mt-1 text-[12px] leading-relaxed text-fg-2">
                     {task.learningContent.mediaSuggestions.map((media) => media.title).join('、')}
                   </div>
                 </div>
               )}
               <div className="rounded-md border border-border bg-surface px-3 py-2 text-[12px] leading-relaxed text-fg-2">
-                复习提示：{task.learningContent.reviewPrompt}
+                Review prompt: {task.learningContent.reviewPrompt}
               </div>
             </div>
           </Section>
         )}
 
-        <Section label={t('detail.task.acceptanceCriteria', '验收标准')}>
+        <Section label={t('detail.task.acceptanceCriteria', 'Acceptance Criteria')}>
           <div className="text-[13px] text-fg-2 leading-relaxed px-3 py-2.5 bg-ok-bg rounded-lg border-l-[3px] border-ok">
             {acceptanceCriteria}
           </div>
         </Section>
 
         {latestAssessment && (
-          <Section label="课后测评记录">
+          <Section label="Post-lesson assessment records">
             <div className="rounded-lg border border-border bg-bg-2 px-3 py-3">
               <div className="flex items-center justify-between gap-2">
                 <div>
                   <div className="text-[12px] font-semibold text-foreground">{latestAssessment.levelLabel}</div>
                   <div className="mt-1 text-[11px] text-fg-3">
-                    共 {task.assessmentHistory?.length ?? 0} 次记录
+                    {task.assessmentHistory?.length ?? 0} total records
                   </div>
                 </div>
                 <div
@@ -115,7 +115,7 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
               </div>
               {latestAssessment.needsReinforcement && (
                 <div className="mt-2 rounded border border-warn bg-warn-bg px-2 py-1.5 text-[11px] leading-relaxed text-fg-2">
-                  建议复习：{latestAssessment.nextPlan.focus.join('、')}
+                  Suggested review: {latestAssessment.nextPlan.focus.join(', ')}
                 </div>
               )}
             </div>
@@ -123,7 +123,7 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
         )}
 
         {task.resources && task.resources.length > 0 && (
-          <Section label={t('detail.task.resources', '资源提示')}>
+          <Section label={t('detail.task.resources', 'Resource hints')}>
             <div className="flex flex-col gap-1.5">
               {task.resources.map((resource) => (
                 <div key={resource.id} className="flex items-center gap-2 px-2.5 py-2 bg-bg-2 rounded-lg text-xs">
@@ -136,7 +136,7 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
         )}
 
         {task.recommendedReferences && task.recommendedReferences.length > 0 && (
-          <Section label="参考资料/文献">
+          <Section label="References">
             <div className="flex flex-col gap-2">
               {task.recommendedReferences.map((reference) => (
                 <div key={reference.id} className="rounded-lg border border-border bg-bg-2 px-3 py-2.5">
@@ -148,7 +148,7 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
                   <div className="mt-1 text-[11px] leading-relaxed text-fg-3">{reference.reason}</div>
                   {reference.url && (
                     <a href={reference.url} target="_blank" rel="noreferrer" className="mt-2 inline-block text-[11px] text-primary hover:text-primary-hover">
-                      打开资料
+                      Open reference
                     </a>
                   )}
                 </div>
@@ -157,11 +157,11 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
           </Section>
         )}
 
-        <Section label={t('detail.task.notes', '笔记')}>
+        <Section label={t('detail.task.notes', 'Notes')}>
           <textarea
             value={note}
             onChange={(event) => setNote(event.target.value)}
-            placeholder="完成后记录感受、卡点、心得。可保存到任务，也可以沉淀为长期笔记。"
+            placeholder="After finishing, record takeaways, blockers, and insights. Save them to the task or promote them into long-term notes."
             className="w-full min-h-20 px-3 py-2.5 bg-bg-2 border border-border rounded-lg text-xs text-foreground leading-relaxed resize-y outline-none focus:border-primary transition-colors duration-fast"
           />
         </Section>
@@ -172,13 +172,13 @@ export function TaskDetailPanel({ task, onStartLearning, onSaveNote, onPromoteNo
           onClick={() => onStartLearning?.(task)}
           className="flex-1 py-2 rounded bg-primary text-primary-foreground text-xs font-medium hover:bg-primary-hover transition-colors duration-fast"
         >
-          开始学习
+          Start Learning
         </button>
         <button
           onClick={() => onPromoteNote?.(task, note)}
           className="px-3 py-2 rounded bg-bg-2 border border-border text-xs text-fg-2 hover:bg-bg-3 transition-colors duration-fast"
         >
-          长期笔记
+          Long-term Note
         </button>
         <button
           onClick={() => onSaveNote?.(task.id, note)}

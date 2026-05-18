@@ -13,6 +13,7 @@ Miniverto should be presented as an alpha project for builders, self-directed le
 3. Prefer small, reviewable pull requests.
 4. Label beginner-friendly issues clearly.
 5. Avoid promising stable installers until signing, updates, and platform validation are ready.
+6. Keep README screenshots English-first; see [SCREENSHOTS.md](SCREENSHOTS.md).
 
 ## First Public Issues
 
@@ -31,4 +32,3 @@ The recommended model is open-core:
 - Keep the local-first desktop core open source.
 - Monetize hosted sync, encrypted backup, signed installers, managed parsing, team workflows, and education/enterprise support.
 - Keep AI provider choice open so users can bring their own keys, local models, or future hosted Miniverto services.
-

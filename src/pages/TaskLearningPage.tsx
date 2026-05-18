@@ -17,20 +17,20 @@ import type { AssessmentBand } from '@/services/final-assessment'
 import type { MaterialCitation, MediaSuggestion, Task } from '@/types'
 
 const BLOCK_LABELS = {
-  hook: '导入',
-  concept: '概念',
-  example: '示例',
-  steps: '步骤',
-  exercise: '练习',
-  reflection: '复盘',
-  quiz: '自测',
+  hook: 'Intro',
+  concept: 'Concept',
+  example: 'Example',
+  steps: 'Steps',
+  exercise: 'Exercise',
+  reflection: 'Reflection',
+  quiz: 'Check',
 }
 
 const ASSESSMENT_BAND_LABELS: Record<AssessmentBand, string> = {
-  concept: '基础概念',
-  application: '应用迁移',
-  synthesis: '综合判断',
-  reflection: '自我解释',
+  concept: 'Core concept',
+  application: 'Transfer',
+  synthesis: 'Synthesis',
+  reflection: 'Self-explanation',
 }
 
 type ResourceFilter = 'all' | 'video' | 'diagram' | 'image' | 'citation' | 'reference'
@@ -53,7 +53,7 @@ export function TaskLearningPage() {
   const [usedResourceIds, setUsedResourceIds] = useState<string[]>([])
 
   if (!project || !task || !session || !assessment) {
-    return <div className="p-8 text-sm text-fg-3">未找到学习内容。</div>
+    return <div className="p-8 text-sm text-fg-3">Learning content not found.</div>
   }
 
   const activeAssessment = assessment
@@ -107,11 +107,11 @@ export function TaskLearningPage() {
           onClick={() => void navigate({ to: '/project/$projectId', params: { projectId } })}
           className="mb-5 text-xs text-fg-3 hover:text-foreground"
         >
-          {'<- 返回计划'}
+          {'<- Back to plan'}
         </button>
-        <div className="text-[11px] font-semibold uppercase text-fg-3">本节大纲</div>
+        <div className="text-[11px] font-semibold uppercase text-fg-3">Lesson Outline</div>
         <h1 className="mt-2 font-display text-xl font-bold leading-tight text-foreground">{session.title}</h1>
-        <div className="mt-2 text-xs text-fg-3">{session.estimatedMinutes} 分钟 · {project.title}</div>
+        <div className="mt-2 text-xs text-fg-3">{session.estimatedMinutes} minutes · {project.title}</div>
         <nav className="mt-5 flex flex-col gap-1.5">
           {session.outline.map((title, index) => (
             <a
@@ -128,7 +128,7 @@ export function TaskLearningPage() {
       <main className="flex-1 overflow-y-auto px-8 py-7">
         <div className="mx-auto max-w-[880px]">
           <div className="mb-7 border-b border-border pb-5">
-            <div className="text-[12px] font-semibold text-primary">Miniverto 学习页</div>
+            <div className="text-[12px] font-semibold text-primary">Miniverto Learning Workspace</div>
             <h2 className="mt-2 font-display text-3xl font-bold text-foreground">{session.title}</h2>
             <p className="mt-3 max-w-[740px] text-[14px] leading-[1.8] text-fg-2">{session.overview}</p>
           </div>
@@ -142,7 +142,7 @@ export function TaskLearningPage() {
                   <span className="rounded bg-accent px-2 py-1 text-[11px] font-semibold text-accent-foreground">
                     {BLOCK_LABELS[block.type]}
                   </span>
-                  <span className="text-[11px] text-fg-3">第 {index + 1} 步</span>
+                  <span className="text-[11px] text-fg-3">Step {index + 1}</span>
                 </div>
                 <h3 className="font-display text-xl font-bold text-foreground">{block.title}</h3>
                 <p className="mt-2 text-[14px] leading-[1.85] text-fg-2">{block.body}</p>
@@ -162,7 +162,7 @@ export function TaskLearningPage() {
                 )}
                 {block.citations.length > 0 && (
                   <div className="mt-4 rounded-md border border-border bg-bg-2 px-3 py-3">
-                    <div className="text-[12px] font-semibold text-foreground">资料依据</div>
+                    <div className="text-[12px] font-semibold text-foreground">Material evidence</div>
                     <div className="mt-2 grid gap-2">
                       {block.citations.map((citation) => <CitationCard key={citation.id} citation={citation} />)}
                     </div>
@@ -173,7 +173,7 @@ export function TaskLearningPage() {
           </div>
 
           <section className="mt-8 border-t border-border pt-6">
-            <h3 className="font-display text-xl font-bold text-foreground">快速自测</h3>
+            <h3 className="font-display text-xl font-bold text-foreground">Quick Check</h3>
             <div className="mt-3 grid gap-2">
               {session.quickCheck.map((question, index) => (
                 <div key={question} className="rounded-md border border-border bg-bg-2 px-4 py-3 text-[13px] text-fg-2">
@@ -183,12 +183,12 @@ export function TaskLearningPage() {
             </div>
             {session.reviewPrompt && (
               <div className="mt-4 rounded-md border border-ok bg-ok-bg px-4 py-3 text-[13px] leading-relaxed text-ok">
-                复习提示：{session.reviewPrompt}
+                Review prompt: {session.reviewPrompt}
               </div>
             )}
             {session.nextStepHint && (
               <div className="mt-4 rounded-md border border-border bg-bg-2 px-4 py-3 text-[13px] leading-relaxed text-fg-2">
-                下一步：{session.nextStepHint}
+                Next step: {session.nextStepHint}
               </div>
             )}
           </section>
@@ -202,11 +202,11 @@ export function TaskLearningPage() {
           />
 
           <section className="mt-6 rounded-lg border border-border bg-surface px-4 py-4">
-            <div className="text-[13px] font-semibold text-foreground">本节笔记</div>
+            <div className="text-[13px] font-semibold text-foreground">Lesson Notes</div>
             <textarea
               value={note}
               onChange={(event) => setNote(event.target.value)}
-              placeholder="写下本节最有价值的一句话、一个例子、一个仍不确定的问题。"
+              placeholder="Write one useful sentence, one example, and one question that is still unclear."
               className="mt-3 min-h-[110px] w-full resize-y rounded-md border border-border bg-bg-2 px-3 py-2 text-[13px] leading-relaxed text-foreground outline-none focus:border-primary"
             />
             <div className="mt-3 flex justify-end">
@@ -220,7 +220,7 @@ export function TaskLearningPage() {
                     : 'cursor-not-allowed bg-border text-fg-3',
                 ].join(' ')}
               >
-                {assessmentResult ? '完成本节并返回计划' : '请先完成课后测评'}
+                {assessmentResult ? 'Complete lesson and return to plan' : 'Complete the assessment first'}
               </button>
             </div>
           </section>
@@ -229,9 +229,9 @@ export function TaskLearningPage() {
 
       <aside className="w-[300px] shrink-0 border-l border-border bg-surface p-5 overflow-y-auto">
         <div className="flex items-center justify-between gap-2">
-          <div className="text-[12px] font-semibold text-foreground">资源工作台</div>
+          <div className="text-[12px] font-semibold text-foreground">Resource Workbench</div>
           <div className="rounded bg-bg-2 px-2 py-1 text-[10px] text-fg-3">
-            {usedResourceIds.length} 已用
+            {usedResourceIds.length} used
           </div>
         </div>
 
@@ -255,7 +255,7 @@ export function TaskLearningPage() {
 
         <div className="mt-3 flex flex-col gap-3">
           {filteredMedia.length === 0 && filteredCitations.length === 0 && filteredReferences.length === 0 ? (
-            <div className="text-[12px] leading-relaxed text-fg-3">当前筛选下暂无资源。</div>
+            <div className="text-[12px] leading-relaxed text-fg-3">No resources for the current filter.</div>
           ) : (
             <>
               {filteredMedia.map((media) => (
@@ -274,7 +274,7 @@ export function TaskLearningPage() {
                   citation={citation}
                   used={usedResourceIds.includes(citation.id)}
                   onToggleUsed={() => toggleResourceUsed(citation.id)}
-                  onInsertNote={() => appendToNote(`资料：${citation.materialName}\n摘要：${citation.summary}\n用途：${citation.reason}`)}
+                  onInsertNote={() => appendToNote(`Material: ${citation.materialName}\nSummary: ${citation.summary}\nUse: ${citation.reason}`)}
                 />
               ))}
               {filteredReferences.map((reference) => (
@@ -287,14 +287,14 @@ export function TaskLearningPage() {
                       onClick={() => toggleResourceUsed(reference.id)}
                       className="rounded bg-surface px-2 py-1 text-[11px] text-fg-2 hover:text-foreground"
                     >
-                      {usedResourceIds.includes(reference.id) ? '已使用' : '标记已用'}
+                      {usedResourceIds.includes(reference.id) ? 'Used' : 'Mark used'}
                     </button>
                     <button
                       type="button"
-                      onClick={() => appendToNote(`参考资料：${reference.title}\n原因：${reference.reason}`)}
+                      onClick={() => appendToNote(`Reference: ${reference.title}\nReason: ${reference.reason}`)}
                       className="rounded bg-surface px-2 py-1 text-[11px] text-fg-2 hover:text-foreground"
                     >
-                      加入笔记
+                      Add to notes
                     </button>
                   </div>
                 </div>
@@ -327,9 +327,9 @@ function TaskAssessmentPanel({
     <section className="mt-8 rounded-lg border border-border bg-surface px-4 py-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <div className="text-[13px] font-semibold text-foreground">Miniverto课后测评</div>
+          <div className="text-[13px] font-semibold text-foreground">Miniverto Post-lesson Assessment</div>
           <p className="mt-1 text-[12px] leading-relaxed text-fg-3">
-            完成本节后用10道题判断是否合格，并生成后续加强方案。
+            After this lesson, use 10 questions to check mastery and generate a follow-up plan.
           </p>
         </div>
         <div className="rounded bg-bg-2 px-3 py-1.5 text-[11px] text-fg-2">
@@ -340,16 +340,16 @@ function TaskAssessmentPanel({
       {result ? (
         <div className="mt-4 grid gap-3 md:grid-cols-2">
           <div className="rounded-md border border-border bg-bg-2 px-4 py-4">
-            <div className="text-[11px] font-semibold uppercase text-fg-3">当前程度</div>
+            <div className="text-[11px] font-semibold uppercase text-fg-3">Current level</div>
             <div className="mt-2 font-display text-3xl font-bold text-foreground">{result.scorePct}%</div>
             <div className="mt-1 text-[13px] font-semibold text-foreground">{result.levelLabel}</div>
             <p className="mt-2 text-[12px] leading-relaxed text-fg-3">{result.masterySummary}</p>
           </div>
           <div className="rounded-md border border-border bg-bg-2 px-4 py-4">
-            <div className="text-[11px] font-semibold uppercase text-fg-3">后续方案</div>
+            <div className="text-[11px] font-semibold uppercase text-fg-3">Follow-up plan</div>
             <div className="mt-2 text-[15px] font-bold text-foreground">{result.nextPlan.title}</div>
             <div className="mt-1 text-[12px] text-fg-3">
-              {result.needsReinforcement ? '需要继续加强' : '暂不需要继续加强'} · {result.nextPlan.durationDays}天
+              {result.needsReinforcement ? 'Needs reinforcement' : 'No reinforcement needed'} · {result.nextPlan.durationDays} days
             </div>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {result.nextPlan.focus.map((item) => (
@@ -374,7 +374,7 @@ function TaskAssessmentPanel({
                   <span className="rounded bg-accent px-2 py-0.5 text-[10px] font-semibold text-accent-foreground">
                     {ASSESSMENT_BAND_LABELS[question.band]}
                   </span>
-                  <span className="text-[11px] text-fg-3">第{index + 1}题</span>
+                  <span className="text-[11px] text-fg-3">Question {index + 1}</span>
                 </div>
                 {question.sourceHint && (
                   <div className="mb-2 rounded bg-surface px-2 py-1.5 text-[11px] leading-relaxed text-fg-3">
@@ -406,7 +406,7 @@ function TaskAssessmentPanel({
             ))}
           </div>
           <div className="mt-4 flex items-center justify-between gap-3">
-            <div className="text-[12px] text-fg-3">提交后才能完成本节，结果会保存到任务笔记。</div>
+            <div className="text-[12px] text-fg-3">Submit before completing this lesson. Results are saved to task notes.</div>
             <button
               type="button"
               onClick={onSubmit}
@@ -418,7 +418,7 @@ function TaskAssessmentPanel({
                   : 'cursor-not-allowed bg-border text-fg-3',
               ].join(' ')}
             >
-              提交课后测评
+              Submit assessment
             </button>
           </div>
         </>
@@ -450,7 +450,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
         <div className="grid gap-4 md:grid-cols-2">
           {session.prerequisites.length > 0 && (
             <div className="rounded-lg border border-border bg-surface px-4 py-4">
-              <div className="text-[13px] font-semibold text-foreground">开始前确认</div>
+              <div className="text-[13px] font-semibold text-foreground">Before You Start</div>
               <div className="mt-3 divide-y divide-border">
                 {session.prerequisites.map((item) => (
                   <div key={item} className="py-2 text-[12px] leading-relaxed text-fg-2">
@@ -463,7 +463,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
           {session.deliverable && (
             <div className="rounded-lg border border-primary/30 bg-accent px-4 py-4">
-              <div className="text-[13px] font-semibold text-accent-foreground">今天产出</div>
+              <div className="text-[13px] font-semibold text-accent-foreground">Today&apos;s Output</div>
               <div className="mt-2 text-[15px] font-semibold text-accent-foreground">{session.deliverable.title}</div>
               <div className="mt-1 text-[12px] text-accent-foreground/80">{session.deliverable.format}</div>
               <p className="mt-3 text-[12px] leading-relaxed text-accent-foreground">
@@ -476,7 +476,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
       {session.glossary.length > 0 && (
         <div className="rounded-lg border border-border bg-surface px-4 py-4">
-          <div className="text-[13px] font-semibold text-foreground">术语速记</div>
+          <div className="text-[13px] font-semibold text-foreground">Glossary Notes</div>
           <div className="mt-3 grid gap-3 md:grid-cols-3">
             {session.glossary.map((item) => (
               <div key={item.term} className="min-w-0">
@@ -493,7 +493,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
       {session.learningObjectives.length > 0 && (
         <div className="rounded-lg border border-border bg-surface px-4 py-4">
-          <div className="text-[13px] font-semibold text-foreground">本节学习目标</div>
+          <div className="text-[13px] font-semibold text-foreground">Learning Objectives</div>
           <div className="mt-3 grid gap-2 md:grid-cols-2">
             {session.learningObjectives.map((objective) => (
               <div key={objective.id} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -507,7 +507,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
       {session.personalizationNotes && (
         <div className="rounded-lg border border-primary/30 bg-accent px-4 py-4">
-          <div className="text-[13px] font-semibold text-accent-foreground">个性化学习说明</div>
+          <div className="text-[13px] font-semibold text-accent-foreground">Personalization Notes</div>
           <p className="mt-2 text-[12px] leading-relaxed text-accent-foreground">
             {session.personalizationNotes}
           </p>
@@ -516,7 +516,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
       {session.conceptMap.length > 0 && (
         <div className="rounded-lg border border-border bg-surface px-4 py-4">
-          <div className="text-[13px] font-semibold text-foreground">概念关系图</div>
+          <div className="text-[13px] font-semibold text-foreground">Concept Map</div>
           <div className="mt-3 grid gap-2 md:grid-cols-2">
             {session.conceptMap.map((concept) => (
               <div key={concept.id} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -535,7 +535,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
       {session.teachingScript.length > 0 && (
         <div className="rounded-lg border border-border bg-surface px-4 py-4">
-          <div className="text-[13px] font-semibold text-foreground">课程讲解</div>
+          <div className="text-[13px] font-semibold text-foreground">Lesson Walkthrough</div>
           <div className="mt-3 grid gap-3">
             {session.teachingScript.map((section) => (
               <div key={section.id} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -552,7 +552,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
       {session.workedExample && (
         <div className="rounded-lg border border-border bg-surface px-4 py-4">
-          <div className="text-[13px] font-semibold text-foreground">示范例题</div>
+          <div className="text-[13px] font-semibold text-foreground">Worked Example</div>
           <div className="mt-2 text-[15px] font-semibold text-foreground">{session.workedExample.title}</div>
           <p className="mt-1 text-[12px] leading-relaxed text-fg-3">{session.workedExample.scenario}</p>
           <ol className="mt-3 grid gap-2">
@@ -570,7 +570,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
       {session.practiceSet.length > 0 && (
         <div className="rounded-lg border border-border bg-surface px-4 py-4">
-          <div className="text-[13px] font-semibold text-foreground">分层练习</div>
+          <div className="text-[13px] font-semibold text-foreground">Layered Practice</div>
           <div className="mt-3 grid gap-2">
             {session.practiceSet.map((practice) => (
               <div key={practice.id} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -591,7 +591,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
         <div className="grid gap-4 md:grid-cols-2">
           {session.answerKey.length > 0 && (
             <div className="rounded-lg border border-border bg-surface px-4 py-4">
-              <div className="text-[13px] font-semibold text-foreground">答案参考</div>
+              <div className="text-[13px] font-semibold text-foreground">Answer Key</div>
               <div className="mt-3 grid gap-2">
                 {session.answerKey.map((item) => (
                   <div key={item.practiceId} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -605,7 +605,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
           {session.reviewCards.length > 0 && (
             <div className="rounded-lg border border-border bg-surface px-4 py-4">
-              <div className="text-[13px] font-semibold text-foreground">复习卡片</div>
+              <div className="text-[13px] font-semibold text-foreground">Review Cards</div>
               <div className="mt-3 grid gap-2">
                 {session.reviewCards.map((card) => (
                   <div key={`${card.tag}-${card.front}`} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -624,7 +624,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
         <div className="grid gap-4 md:grid-cols-2">
           {session.commonMistakes.length > 0 && (
             <div className="rounded-lg border border-border bg-surface px-4 py-4">
-              <div className="text-[13px] font-semibold text-foreground">常见误区</div>
+              <div className="text-[13px] font-semibold text-foreground">Common Mistakes</div>
               <div className="mt-3 grid gap-2">
                 {session.commonMistakes.map((item) => (
                   <div key={item.mistake} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -638,7 +638,7 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 
           {session.completionRubric.length > 0 && (
             <div className="rounded-lg border border-border bg-surface px-4 py-4">
-              <div className="text-[13px] font-semibold text-foreground">达标标准</div>
+              <div className="text-[13px] font-semibold text-foreground">Completion Rubric</div>
               <div className="mt-3 grid gap-2">
                 {session.completionRubric.map((item) => (
                   <div key={item.criterion} className="rounded-md border border-border bg-bg-2 px-3 py-3">
@@ -656,18 +656,18 @@ function LessonDetailPanel({ session }: { session: LearningSession }) {
 }
 
 function practiceLevelLabel(level: NonNullable<LearningSession['practiceSet']>[number]['level']) {
-  if (level === 'foundation') return '基础'
-  if (level === 'application') return '应用'
-  return '挑战'
+  if (level === 'foundation') return 'Foundation'
+  if (level === 'application') return 'Application'
+  return 'Challenge'
 }
 
 function resourceFilterLabel(filter: ResourceFilter) {
-  if (filter === 'all') return '全部'
-  if (filter === 'video') return '视频'
-  if (filter === 'diagram') return '图解'
-  if (filter === 'image') return '配图'
-  if (filter === 'citation') return '资料'
-  return '参考'
+  if (filter === 'all') return 'All'
+  if (filter === 'video') return 'Video'
+  if (filter === 'diagram') return 'Diagram'
+  if (filter === 'image') return 'Image'
+  if (filter === 'citation') return 'Material'
+  return 'Reference'
 }
 
 function CitationCard({ citation, compact = false }: { citation: MaterialCitation; compact?: boolean }) {
@@ -701,14 +701,14 @@ function CitationWorkbenchCard({
           onClick={onToggleUsed}
           className="rounded bg-surface px-2 py-1 text-[11px] text-fg-2 hover:text-foreground"
         >
-          {used ? '已使用' : '标记已用'}
+          {used ? 'Used' : 'Mark used'}
         </button>
         <button
           type="button"
           onClick={onInsertNote}
           className="rounded bg-surface px-2 py-1 text-[11px] text-fg-2 hover:text-foreground"
         >
-          加入笔记
+          Add to notes
         </button>
       </div>
     </div>
@@ -766,7 +766,7 @@ function MediaCard({
           onClick={() => void handleCopyPrompt()}
           className="mt-3 inline-flex rounded bg-primary px-3 py-1.5 text-[11px] font-medium text-primary-foreground hover:bg-primary-hover"
         >
-          {copyState === 'copied' ? '已复制' : card.actionLabel}
+          {copyState === 'copied' ? 'Copied' : card.actionLabel}
         </button>
       )}
 
@@ -778,16 +778,16 @@ function MediaCard({
               onClick={onToggleUsed}
               className="rounded bg-surface px-2 py-1 text-[11px] text-fg-2 hover:text-foreground"
             >
-              {used ? '已使用' : '标记已用'}
+              {used ? 'Used' : 'Mark used'}
             </button>
           )}
           {onInsertNote && (
             <button
               type="button"
-              onClick={() => onInsertNote(`资源：${card.title}\n用途：${card.purpose}\n提示：${card.copyText ?? card.promptOrQuery}`)}
+              onClick={() => onInsertNote(`Resource: ${card.title}\nUse: ${card.purpose}\nPrompt: ${card.copyText ?? card.promptOrQuery}`)}
               className="rounded bg-surface px-2 py-1 text-[11px] text-fg-2 hover:text-foreground"
             >
-              加入笔记
+              Add to notes
             </button>
           )}
         </div>
@@ -795,7 +795,7 @@ function MediaCard({
 
       {card.searchProviderLabel && (
         <div className="mt-2 text-[11px] leading-relaxed text-fg-3">
-          在 {card.searchProviderLabel} 搜索：{card.promptOrQuery}
+          Search in {card.searchProviderLabel}: {card.promptOrQuery}
         </div>
       )}
 
@@ -807,13 +807,13 @@ function MediaCard({
 
       {copyState === 'failed' && (
         <div className="mt-2 text-[11px] leading-relaxed text-fg-3">
-          自动复制失败，可以手动选择上方提示词。
+          Automatic copy failed. Select the prompt above manually.
         </div>
       )}
 
       {card.usageSteps.length > 0 && (
         <div className="mt-3 border-t border-border pt-3">
-          <div className="text-[11px] font-semibold text-foreground">用完这个资源后</div>
+          <div className="text-[11px] font-semibold text-foreground">After using this resource</div>
           <ul className="mt-2 grid gap-1.5">
             {card.usageSteps.map((step) => (
               <li key={step} className="text-[11px] leading-relaxed text-fg-3">

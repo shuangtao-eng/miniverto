@@ -21,7 +21,7 @@ export function Sidebar() {
   const mainNav = [
     { icon: 'P', path: '/', title: t('nav.allProjects') },
     { icon: 'M', path: '/materials', title: t('nav.materials') },
-    { icon: 'N', path: '/notes', title: '知识库' },
+    { icon: 'N', path: '/notes', title: 'Knowledge Base' },
     { icon: 'S', path: '/states', title: t('nav.states') },
   ]
 

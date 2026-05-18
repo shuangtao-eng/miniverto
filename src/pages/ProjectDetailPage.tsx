@@ -73,12 +73,12 @@ export function ProjectDetailPage() {
   }, [project])
 
   if (!project) {
-    return <div className="p-8 text-fg-3 text-sm">项目未找到</div>
+    return <div className="p-8 text-fg-3 text-sm">Project not found</div>
   }
 
   const tabs = [
     { key: 'plan' as const, label: t('detail.tabs.plan') },
-    { key: 'progress' as const, label: '进度' },
+    { key: 'progress' as const, label: 'Progress' },
   ]
 
   const handleStatusChange = (id: string, status: Task['status']) => {
@@ -132,7 +132,7 @@ export function ProjectDetailPage() {
 
   const handleAddReinforcementTask = async (trigger: ReviewTrigger) => {
     if (!project) return
-    const updatedProject = addReinforcementTaskToProject(project, trigger, { nowLabel: '刚刚' })
+    const updatedProject = addReinforcementTaskToProject(project, trigger, { nowLabel: 'just now' })
     if (updatedProject === project) return
 
     addProject(updatedProject)
@@ -149,7 +149,7 @@ export function ProjectDetailPage() {
 
   const handleDeleteProject = async () => {
     if (!project) return
-    const confirmed = window.confirm(`确定删除「${project.title}」吗？该计划、任务和测评缓存会一起清理。`)
+    const confirmed = window.confirm(`Delete "${project.title}"? The plan, tasks, and assessment cache will be removed together.`)
     if (!confirmed) return
 
     const invoke = await getTauriInvoke()
@@ -197,13 +197,13 @@ export function ProjectDetailPage() {
                 onClick={() => setShowFinalAssessment(true)}
                 className="flex items-center gap-1.5 px-4 py-2 rounded bg-primary text-primary-foreground text-[13px] font-medium hover:bg-primary-hover transition-all duration-fast"
               >
-                完成测评
+                Final Assessment
               </button>
               <button
                 onClick={() => void handleDeleteProject()}
                 className="flex items-center gap-1.5 px-4 py-2 rounded bg-err-bg border border-err text-[13px] text-err font-medium hover:brightness-95 transition-all duration-fast"
               >
-                删除计划与缓存
+                Delete Plan and Cache
               </button>
             </div>
           </div>
@@ -231,7 +231,7 @@ export function ProjectDetailPage() {
           <div className="mb-5 rounded-lg border border-border bg-surface px-4 py-3">
             <div className="flex flex-wrap items-center gap-3">
               <div className="flex-1 min-w-[220px]">
-                <div className="text-[12px] font-semibold text-fg-3">最近终局测评</div>
+                <div className="text-[12px] font-semibold text-fg-3">Latest final assessment</div>
                 <div className="mt-1 text-[13px] leading-[1.6] text-fg-2">
                   {latestAssessment.masterySummary}
                 </div>
@@ -249,7 +249,7 @@ export function ProjectDetailPage() {
                 onClick={() => void handleCreateReinforcementPlan()}
                 className="rounded bg-primary px-4 py-2 text-[12px] font-medium text-primary-foreground transition-colors duration-fast hover:bg-primary-hover"
               >
-                生成强化计划
+                Generate reinforcement plan
               </button>
             </div>
           </div>
@@ -286,7 +286,7 @@ export function ProjectDetailPage() {
                   <ProgressRing pct={p} size={40} stroke={3.5} color={p === 100 ? 'var(--ok)' : undefined} />
                   <div className="flex-1">
                     <div className="text-[13px] font-medium text-foreground mb-[3px]">{m.title}</div>
-                    <div className="text-[11px] text-fg-3">{done}/{m.tasks.length} 任务</div>
+                    <div className="text-[11px] text-fg-3">{done}/{m.tasks.length} tasks</div>
                   </div>
                 </div>
               )
@@ -329,15 +329,15 @@ function AssessmentInsightsPanel({
     <div className="rounded-lg border border-border bg-surface px-4 py-4">
       <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <div className="text-[13px] font-semibold text-foreground">课后测评掌握曲线</div>
+          <div className="text-[13px] font-semibold text-foreground">Post-lesson mastery trend</div>
           <div className="mt-1 text-[12px] text-fg-3">
-            已记录 {insights.completedAssessmentCount} 次课后测评
+            {insights.completedAssessmentCount} post-lesson assessments recorded
           </div>
         </div>
         <div className="flex gap-2">
-          <MetricPill label="最近" value={insights.latestScorePct == null ? '--' : `${insights.latestScorePct}%`} />
-          <MetricPill label="平均" value={insights.averageScorePct == null ? '--' : `${insights.averageScorePct}%`} />
-          <MetricPill label="状态" value={insights.masteryLabel} />
+          <MetricPill label="Latest" value={insights.latestScorePct == null ? '--' : `${insights.latestScorePct}%`} />
+          <MetricPill label="Average" value={insights.averageScorePct == null ? '--' : `${insights.averageScorePct}%`} />
+          <MetricPill label="Status" value={insights.masteryLabel} />
         </div>
       </div>
 
@@ -359,13 +359,13 @@ function AssessmentInsightsPanel({
         </div>
       ) : (
         <div className="rounded-md border border-border bg-bg-2 px-3 py-3 text-[12px] text-fg-3">
-          完成学习页的课后测评后，这里会显示每节课的掌握趋势。
+          Complete post-lesson assessments in the learning page to see mastery trends here.
         </div>
       )}
 
       {insights.reviewTriggers.length > 0 && (
         <div className="mt-4">
-          <div className="mb-2 text-[12px] font-semibold text-foreground">需要复习的任务</div>
+          <div className="mb-2 text-[12px] font-semibold text-foreground">Tasks that need review</div>
           <div className="grid gap-2">
             {insights.reviewTriggers.map((trigger) => (
               <div key={trigger.taskId} className="rounded-md border border-warn bg-warn-bg px-3 py-2">
@@ -381,7 +381,7 @@ function AssessmentInsightsPanel({
                   onClick={() => onAddReinforcementTask(trigger)}
                   className="mt-2 rounded bg-primary px-3 py-1.5 text-[11px] font-medium text-primary-foreground hover:bg-primary-hover"
                 >
-                  加入当前计划
+                  Add to current plan
                 </button>
               </div>
             ))}
