@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/shuangtao-eng/miniverto)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/shuangtao-eng/miniverto?include_prereleases)](https://github.com/shuangtao-eng/miniverto/releases)
 
-[English](README.md) | 简体中文
+**语言 / Language:** [English](README.md) | 简体中文
 
 Miniverto 是一个本地优先的 AI 学习规划器。它可以把一个宏大的学习目标转化为可执行的学习计划、结构化课程、练习循环和可长期沉淀的笔记。
 
