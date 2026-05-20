@@ -7,6 +7,7 @@ Miniverto keeps README screenshots in `docs/assets/`. These images should use En
 - `docs/assets/hero-dashboard.png`: project dashboard.
 - `docs/assets/project-detail.png`: project detail and plan tree.
 - `docs/assets/learning-workspace.png`: task learning workspace.
+- `docs/assets/miniverto-demo.gif`: 30-second README and launch preview generated from the screenshot set.
 - `docs/assets/product-loop.svg`: product loop diagram.
 - `docs/assets/local-first-architecture.svg`: architecture diagram.
 
@@ -43,3 +44,9 @@ npm run check
 ```
 
 Review the images visually before committing. The PNGs should not contain Chinese demo data unless the README section explicitly targets the Chinese-language documentation.
+
+After refreshing the PNGs, regenerate the demo loop:
+
+```bash
+python scripts/create_demo_gif.py
+```

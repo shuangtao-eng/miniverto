@@ -12,7 +12,7 @@ Most learning tools start after you already know what to study. Miniverto starts
 
 > Status: alpha. Miniverto is usable for local planning experiments and open-source collaboration, but it is not a polished consumer release yet.
 
-![Miniverto dashboard](docs/assets/hero-dashboard.png)
+![Miniverto 30-second demo loop](docs/assets/miniverto-demo.gif)
 
 ## Why Miniverto
 
@@ -41,6 +41,8 @@ The product thesis is simple: a good learning app should feel less like a static
 - Run frontend and Rust test suites for the current core behavior.
 
 ## Product Screens
+
+![Miniverto dashboard](docs/assets/hero-dashboard.png)
 
 ![Miniverto project detail](docs/assets/project-detail.png)
 
@@ -142,6 +144,12 @@ Miniverto is moving toward a private learning operating system:
 - Honest about uncertainty, progress, review, and re-planning.
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for the near-term plan.
+
+## Story and Launch Materials
+
+- Product story: [Why I built Miniverto, a local-first AI learning planner with Tauri and Rust](docs/articles/why-local-first-ai-learning-planner.md).
+- Launch kit: [docs/LAUNCH_KIT.md](docs/LAUNCH_KIT.md).
+- Demo media notes: [docs/DEMO_MEDIA.md](docs/DEMO_MEDIA.md).
 
 ## Contributing
 

@@ -12,7 +12,7 @@ Miniverto 是一个本地优先的 AI 学习规划器。它可以把一个宏大
 
 > 状态：alpha。Miniverto 目前适合本地规划实验、代码审阅和开源协作，还不是一个打磨完成的消费者级稳定版本。
 
-![Miniverto dashboard](docs/assets/hero-dashboard.png)
+![Miniverto 30-second demo loop](docs/assets/miniverto-demo.gif)
 
 ## 为什么做 Miniverto
 
@@ -41,6 +41,8 @@ Miniverto 是一个本地优先的 AI 学习规划器。它可以把一个宏大
 - 运行当前核心行为的前端和 Rust 测试套件。
 
 ## 产品截图
+
+![Miniverto dashboard](docs/assets/hero-dashboard.png)
 
 ![Miniverto project detail](docs/assets/project-detail.png)
 
@@ -142,6 +144,12 @@ Miniverto 正在朝一个私有学习操作系统演进：
 - 诚实面对不确定性、进度、复习和重新规划。
 
 近期计划见 [docs/ROADMAP.md](docs/ROADMAP.md)。
+
+## 项目故事和推广材料
+
+- 英文产品故事：[Why I built Miniverto, a local-first AI learning planner with Tauri and Rust](docs/articles/why-local-first-ai-learning-planner.md)。
+- 发布推广包：[docs/LAUNCH_KIT.md](docs/LAUNCH_KIT.md)。
+- Demo 素材说明：[docs/DEMO_MEDIA.md](docs/DEMO_MEDIA.md)。
 
 ## 参与贡献
 
