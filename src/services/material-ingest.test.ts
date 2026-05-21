@@ -47,8 +47,36 @@ describe('material ingest service', () => {
     expect(material.note).toBe('Linear regression')
   })
 
-  test('reads text files before ingesting them', async () => {
-    const file = new File(['Chapter 1\n\nChapter 2'], 'notes.md', { type: 'text/markdown' })
+  test('rejects whitespace-only pasted text before invoking ingestion', async () => {
+    const invoke = vi.fn()
+
+    await expect(ingestPastedTextMaterial({
+      text: ' \n\t ',
+      invoke,
+      now: () => 1000,
+    })).rejects.toThrow('Cannot ingest empty pasted material')
+
+    expect(invoke).not.toHaveBeenCalled()
+  })
+
+  test('keeps very short pasted text as ready material', async () => {
+    const material = await ingestPastedTextMaterial({
+      text: 'AI',
+      invoke: undefined,
+      now: () => 1000,
+    })
+
+    expect(material).toMatchObject({
+      name: 'Pasted notes',
+      kind: 'text',
+      status: 'ready',
+      selected: true,
+      note: 'AI',
+    })
+  })
+
+  test('reads markdown files before ingesting them', async () => {
+    const file = new File(['# Chapter 1\n\n- Topic A\n- Topic B'], 'notes.md', { type: 'text/markdown' })
     const material = await ingestTextFileMaterial({
       file,
       invoke: undefined,
@@ -56,7 +84,26 @@ describe('material ingest service', () => {
     })
 
     expect(material.name).toBe('notes.md')
-    expect(material.note).toContain('Chapter 1')
+    expect(material.note).toContain('# Chapter 1')
+    expect(material.note).toContain('- Topic A')
     expect(material.status).toBe('ready')
+  })
+
+  test('marks unsupported file types as unselected without reading file text', async () => {
+    const file = new File(['binary-ish'], 'archive.zip', { type: 'application/zip' })
+    const material = await ingestTextFileMaterial({
+      file,
+      invoke: undefined,
+      now: () => 1000,
+    })
+
+    expect(material).toMatchObject({
+      name: 'archive.zip',
+      kind: 'unsupported',
+      status: 'unsupported',
+      selected: false,
+      source: 'file',
+    })
+    expect(material.note).toBeUndefined()
   })
 })
