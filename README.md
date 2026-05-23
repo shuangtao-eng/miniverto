@@ -106,6 +106,8 @@ Run the Tauri desktop app:
 npm run tauri:dev
 ```
 
+If a clean clone does not start as expected, see [Troubleshooting Clean-Clone Setup](docs/TROUBLESHOOTING.md).
+
 Run the checks:
 
 ```bash
